@@ -117,11 +117,11 @@ class PatientLoginView(generics.CreateAPIView):
             #check wether the data present in the database
             user=Petient.objects.filter(Email_Id=email,Password=password)
             if user:
-                message="login succcessfully and user details are!!!"
+                message="login succcessfully"
                 data_for_user=user
                 return render(request,"data_extract.html",{"message":message,"data_for_user":data_for_user})
             else:
-                form=PatientLoginForm(request.POST)
+                form=PatientLoginForm()
                 message="User Does Not Exist Or Check Email id and Password"
                 return render(request,"Patient_login.html",{"form":form,"message":message})
         else:
