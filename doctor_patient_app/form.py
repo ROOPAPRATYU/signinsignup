@@ -44,7 +44,7 @@ class DoctorForm(forms.Form):
 class PatientForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.serializer = DoctorSerializer()
+        self.serializer = PatientSerializer()
         self.fields = {
             field_name: self.get_form_field(field_data)
             for field_name, field_data in self.serializer.fields.items()
@@ -70,7 +70,7 @@ class PatientForm(forms.Form):
         data = self.cleaned_data
 
         # Create an instance of the serializer with the form data
-        serializer = DoctorSerializer(data=data)
+        serializer = PatientSerializer(data=data)
 
         # Validate the serializer data
         if serializer.is_valid():
@@ -125,7 +125,7 @@ class PatientLoginForm(forms.Form):
     def save(self):
         data = self.cleaned_data
         # Create an instance of the serializer with the form data
-        serializer = DoctorSerializer(data=data)
+        serializer = PatientSerializer(data=data)
 
         # Validate the serializer data
         if serializer.is_valid():
