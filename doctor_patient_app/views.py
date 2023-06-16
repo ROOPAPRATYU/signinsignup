@@ -84,7 +84,7 @@ class DoctorLoginView(generics.CreateAPIView):
                 message="login succcessfully"
                 data_for_user=user
                 return render(request,"data_extract.html",{"message":message,"data_for_user":data_for_user})
-             else:
+            else:
                 form=DoctorLoginForm()
                 message="User Does Not Exist Or Check Email id and Password"
                 return render(request,"Doctor_login.html",{"form":form,"message":message})
