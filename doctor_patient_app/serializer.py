@@ -9,7 +9,7 @@ class DoctorSerializer(serializers.ModelSerializer):
 
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Doctor
+        model=Petient
         fields=["First_Name","Last_Name","Profile_Pic","Username","Email_Id","Password","Confirm_Password","Address_line1","City","State","Pincode"]
     
 class LoginDoctorSerializer(serializers.ModelSerializer):
