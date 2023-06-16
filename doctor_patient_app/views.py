@@ -60,8 +60,9 @@ class PatientRegisterView(generics.CreateAPIView):
                 return render(request, 'Patient_signup.html', {'form': form, 'error_message': error_message})
             else:
                 patient = form.save()
+                form = PatientLoginForm(request.POST)
                 message="Registered Successufylly!!!"
-                return render(request, 'Patient_signup.html', {'form': form,"message":message})
+                return render(request, 'Patient_login.html', {'form': form,"message":message})
         else:
             response = {"message": "Invalid data or registration failed"}
             return Response(data=response, status=status.HTTP_400_BAD_REQUEST)
