@@ -29,11 +29,12 @@ class DoctorRegisterView(generics.CreateAPIView):
         
             if password != confirm_password:
                 error_message = "Password and Confirm Password do not match"
-                return render(request, 'Patient_signup.html', {'form': form, 'error_message': error_message})
+                return render(request, 'Doctor_signup.html', {'form': form, 'error_message': error_message})
             else:
                 patient = form.save()
+                form = DoctorLoginForm(request.POST)
                 message="Registered Successufylly!!!"
-                return render(request, 'Patient_signup.html', {'form': form,"message":message})
+                return render(request, 'Doctor.html', {'form': form,"message":message})
         else:
             response = {"message": "Invalid data or registration failed"}
             return Response(data=response, status=status.HTTP_400_BAD_REQUEST)
