@@ -126,21 +126,4 @@
 
 </html>
 
-    <form method="post" enctype="multipart/form-data">
-        <h1>Doctor Login</h1>
-        {% csrf_token %}
-        <div class="container">
-            {% for field in form %}
-            <div class="form-content">
-                <p class="p-style">{{ field.label_tag }}</p>
-                <p class="input-style">{{ field }}</p>
-            </div>
-            {% endfor %}
-            <input class="button-style" type="submit" value="Login">
-        </div>
-    </form>
-    <p>Don't Have An Account? Click Here</p><a href="{% url 'doctor_register' %}"><span
-            style="color: blue;font-size: 16px;font-weight: bold;">Sign Up</span></a>
-</body>
-
-</html>
+    
